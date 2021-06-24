@@ -1,0 +1,688 @@
+@charset "UTF-8";
+/*字型-思源黑體*/
+/*@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&subset=chinese-traditional');*/
+/*字型-fontawesome Pro*/
+/*@import url('https://pro.fontawesome.com/releases/v5.8.2/css/all.css');*/
+/*卷軸外掛*/
+/* @import url('../js/lib/mCustomScrollbar/jquery.mCustomScrollbar.min.css');
+@import url('animate-min.css');
+ */
+
+/* reset */
+*{ margin:0; padding:0; font-size:10px; box-sizing:border-box; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:transparent; outline:none; font-family:'Noto Sans TC','Microsoft JhengHei','Apple LiGothic Medium','Arial',sans-serif;}
+html{ -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+body{ margin:0; -webkit-overflow-scrolling:touch; text-align:center; }
+:before,:after,i{ font-family:,'icomoon','Font Awesome 5 Pro','Font Awesome 5 Free','Font Awesome 5 Brands','fontawesome','Microsoft JhengHei',Arial,'Microsoft JhengHei','Apple LiGothic Medium',sans-serif;}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary,div,a{ display:block; box-sizing:border-box; position:relative;}
+a{ background:transparent; text-decoration:none; color:inherit; cursor:pointer; line-height:1em; display:inline-block; font-size:inherit;}
+a:active{ outline:0; }
+b,strong{ font-weight:bold; font-size:inherit; }
+dfn{ font-style:normal; }
+img{width: 100%; height: auto; max-height: 100%; border:0; vertical-align:middle; line-height:0; font-size:0; flex-shrink: 0; }
+input,textarea,button,select,option{ border:0; margin:0; outline:none; padding:0; font-size:1.6rem; font-family:/*'Noto Sans TC','Open Sans',*/'Microsoft JhengHei','Apple LiGothic Medium','Arial',sans-serif; -webkit-appearance:none; -moz-appearance:none; /*-ms-appearance:none; appearance:none;*/ }
+label,span{ font-size:inherit; }
+textarea{ resize:none; }
+select::-ms-expand{ display:none; }
+input::-moz-placeholder,textarea::-moz-placeholder{ color:#ccc; }
+input:-ms-input-placeholder,textarea:-ms-input-placeholder{ color:#ccc; }
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{ color:#ccc; }
+table{ border-collapse:collapse; border-spacing:0; }
+td,th{ padding:0; }
+h1,h2,h3,h4,h5,h6,p,figure,form,blockquote{ margin:0; font-weight:normal; line-height:1em; margin-bottom:0;}
+ul,ol,li,dl,dd{ margin:0; padding:0; }
+ul,ol{ list-style:none; box-sizing:border-box;}
+/* reset */
+
+
+/*loading*/
+.loading{ width:100vw; height:100%; min-height:100vh; position:fixed; left:0; top:0; z-index:9999; display:flex; justify-content:center; align-items:center; background-color: rgba(0,0,0,.8);}
+/*loading 圖*/
+.loading-circle circle{ -webkit-animation:c1_2 9s linear infinite,c1_3 4.5s infinite; -moz-animation:c1_2 9s linear infinite,c1_3 4.5s infinite; animation:c1_2 9s linear infinite,c1_3 4.5s infinite; stroke-width:2px; }
+@-webkit-keyframes c1_2{0%{stroke-width:0; } 10%{stroke-width:4; } 75%{stroke-width:4; } 90%{stroke-width:0; } 100%{stroke-width:0; } }
+@-webkit-keyframes c1_3{
+0%{stroke-dasharray:104,156; stroke-dashoffset:-52; } 16%{stroke-dasharray:1,156; stroke-dashoffset:-52; }
+16.01%{stroke-dasharray:1,156; stroke-dashoffset:-208; } 33%{stroke-dasharray:104,52; stroke-dashoffset:-104; }
+33.01%{stroke-dasharray:104,52; stroke-dashoffset:-104; } 49%{stroke-dasharray:1,156; stroke-dashoffset:-104; } 
+49.01%{stroke-dasharray:1,156; stroke-dashoffset:52; } 66%{stroke-dasharray:104,52; stroke-dashoffset:156; }
+66.01%{stroke-dasharray:104,52; stroke-dashoffset:156; } 82%{stroke-dasharray:1,156; stroke-dashoffset:156; }
+82.01%{stroke-dasharray:1,156; stroke-dashoffset:156; } 99.99%{stroke-dasharray:104,52; stroke-dashoffset:256; }
+}
+/*END  loading 圖*/
+
+/* Firefox隱藏滾動bar */
+html {
+    overflow: -moz-hidden-unscrollable;
+    /* height: 100%; */
+}
+/* Chorme隱藏滾動bar */
+body::-webkit-scrollbar {
+    display: none;
+}
+body {
+	/* IE/Edge隱藏滾動bar */
+    -ms-overflow-style: none;
+    /* Firefox隱藏滾動bar */
+    height: 100%;
+	overflow: auto;
+	margin-top: 50px;
+	/*文字對齊*/
+	text-align: left;
+	text-justify:inter-ideograph;
+	-ms-word-break: break-all;
+	-ms-word-wrap: break-all;
+	-webkit-word-break: break-word;
+	-webkit-word-wrap: break-word;
+	word-break: break-word;
+	word-wrap: break-word;
+} 
+
+
+/*卷軸*/
+.mCSB_inside>.mCSB_container{ margin-right:0; }
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color:#fff; }
+.mCSB_scrollTools .mCSB_draggerRail{ background-color:rgba(255,255,255,.4); }
+
+
+/*共用內容*/
+html{ position:relative; }
+html.fixed{ position:fixed; }
+body{ height:100%; min-height:100vh; position:relative; overflow-x:hidden; font-size: 10px;}
+/*為了解決footer下方謎樣空白*/
+/* iframe{ position:absolute; } */
+
+
+/*header*/
+header { position:fixed; top:0; right:0;margin: 12px; background: #F29B83;border-radius: 50px;/* width:100%; */ z-index:90; transition:all .6s ease-in-out;}
+header nav{background: #F29B83;} 
+header .header-container{ display:flex; justify-content:space-between; align-items:center; padding:15px 25px; }
+header .header-container .logo{ width:145px; height:27px; visibility: hidden; }
+header .header-container .logo svg{ width:auto; height:100%; }
+header .header-container .logo svg > *{ fill:#FFF4CD; }
+header nav{ position:fixed; bottom:0; left:0; width:100%; height:0; overflow:hidden; transition:background .3s cubic-bezier(.17,.67,.83,.67); transform:translateY(0);}
+header nav .mainMenu-box{  width:100%; height:100%; overflow:auto; border-radius:5px; background:#fff;}
+header nav ul.mainMenu{ display:flex; justify-content:center; flex-wrap:wrap; flex-direction:column; align-items:center;  margin:30px 15px; padding-right:30px;  color: #4F2419;}
+header nav ul.mainMenu > li{list-style-type: none; text-align:left; margin:0 15px; padding: 1em 0; font-size:1.8rem; width:100%; max-width:480px;}
+header nav ul.mainMenu > li h4{ color:#f72f33; border-left:solid 4px #f72f33;font-size:.8em; font-weight:600; display:block; margin: 0 0 .8em 0; padding-left:.4em; } 
+header nav ul.mainMenu > li > a{ width:100%; border-radius:50px; padding: 0; font-size:1em; line-height:1.3; } 
+header nav ul.mainMenu > li > a:after{ content:''; width:0; height:2px; background:#fff; display:block; transform:translateY(6px); transition:all .6s;}
+header nav ul.mainMenu > li + li{ border-top:dotted 2px #F29B83; }
+header nav ul.mainMenu > li > a.mtop{padding-top:0em; }
+.navToggle{ width:37px; height:27px; box-sizing:border-box; cursor:pointer;}
+.navToggle span ,.navToggle span:before ,.navToggle span:after{ display:block; width:100%; height:4px; background:#FFF3DA;} 
+.navToggle span{ position:relative; top:50%; transform:translateY(-50%);}
+.navToggle span:before ,.navToggle span:after{ content:''; position:absolute; }
+.navToggle span:before{ top:-10px; }
+.navToggle span:after{ bottom:-10px; }
+
+.navToggle.navToggle01 span{ transition:background .3s .6s;}
+.navToggle.navToggle01 span:before{ transition:transform .1s .3s ,top .3s .7s; }
+.navToggle.navToggle01 span:after{ transition:transform .1s .3s ,bottom .3s .7s;}
+.navCheck{ display:none; font-size:0; opacity:0; pointer-events:none; }
+.navCheck:checked ~ .navToggle.navToggle01 span{ background:none; transition:background 0s;}
+.navCheck:checked ~ .navToggle.navToggle01 span:before{ top:0; transform:rotate(135deg); transition:top .2s .1s,transform .2s .6s;}
+.navCheck:checked ~ .navToggle.navToggle01 span:after{ bottom:0; transform:rotate(225deg); transition:bottom .2s .1s,transform .2s .6s;}
+.navCheck:checked ~ nav{ padding:60px 25px 30px; max-height: 100vh; width: 100vw;}
+
+
+/* ---------- 頁面滑動動態 ---------- */
+
+header.hide{ transform:translateY(-240%); }
+
+/* tabs scroll fixed */
+.tabs.scrollfixed{ position: fixed; left: 0; top: 0; z-index: 999; transition:all .6s ease-in-out;}
+.tabs.hastop{ top: 57px; transition:all .6s ease-in-out; }
+
+
+/* ---------- 共用內容 ---------- */
+.D\(f\) { display: flex; }
+.FW\(w\) { flex-wrap: wrap;}
+.T\(c\){text-align: center;}
+section { display: flex; justify-content: center;  }
+.contant {  display: flex; justify-content: center; padding: 24px 0 120px 0; }
+
+picture { width: 100%; }
+
+.bg-yellow:first-child{padding: 48px 0 120px 0;}
+.bg-yellow{background-color: #FFF3DA;padding: 140px 0 ;}
+.bg-white{background-color: #fff; padding:0 0  100px 0;}
+p{color:#4F2419;font-size: 20px;line-height: 1.5em;}
+
+
+
+/* wrap */
+.wrap{ box-sizing: border-box;}
+
+/* kv */
+.kv-container{position: relative; width: 100vw; max-width: 100vw; height: 100%; display: flex; justify-content: center; padding: 0; flex-direction: column; align-items: center;}
+.kv-bg{
+	background: url('../images/kv-bg.png') center bottom no-repeat ; 
+	-webkit-background-size: cover; 
+	background-size: cover;
+	width: 100%;
+	display: block; 
+	position: relative; 
+}
+.kv-bg img{width: 100%; max-width: 1000px; margin:0 auto;padding:36px 0 120px 0;}
+.container{ width: 100%; max-width: 1000px;margin: 0 auto;}
+
+/* 錨點選單-手機隱藏 */
+.menu{ display: none; }
+
+/* 按鈕樣式 */
+.btn { background: #F29B83; color: #fff; font-size: 30px; font-weight: bold; justify-content: center; align-items: center; border-radius: 50px; }
+.btn img{width: 100%;}
+
+
+/* 影片區 */
+.video{	border-radius: 16px; background-color: #FACE9D; box-shadow: 16px 16px 0px #FACE9D;}
+.video:before{content: '';background: url('../images/video-bg.png') center center no-repeat ; -webkit-background-size: contain; background-size: contain; width: 100px; height: 100px; display: block; position: absolute; top: -30px; right:-40px;}
+.video:after{content: '';background: url('../images/video-bg.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 100px; height: 100px; display: block; position: absolute; bottom: -30px; left:-40px;}
+.video-container{position: relative;margin: 40px 0;border-radius: 16px;padding-bottom: 56.25%;padding-top: 30px;height: 0;box-shadow: 4px 4px 8px rgba(0,0,0,0.2);overflow: hidden;	z-index: 1;}
+.video-container iframe, .video-container object, .video-container embed{position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+
+/* OPEN!X卡娜赫拉巨型氣球 */
+.bg-white:before{
+	content: '';
+	background: url('../images/bg-white.png') center center no-repeat ;  
+	-webkit-background-size: cover; 
+	background-size: cover; 
+	width: 100vw; 
+	padding-top: 8%;
+	display: block; 
+	position: absolute;
+	top: -80px;
+	left: 0;
+}
+.bg-white:after{
+	content: '';
+	background: url('../images/bg-open-pc.png') top center no-repeat ;  
+	-webkit-background-size: cover; 
+	background-size: cover; 
+	width: 100vw; 
+	padding-top: 14%;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.title1{background: url('../images/title1.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 480px; height: 56px; display: block; position: relative; margin:-50px auto 40px auto;}
+.title1:before{ content: ''; background: url('../images/icon-left.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 56px; height: 56px; display: block; position: absolute; top: 0; left:0;}
+.title1:after{ content: ''; background: url('../images/icon-right.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 56px; height: 56px; display: block; position: absolute; top: 0; right:0;}
+
+/* 情境圖 */
+.pic-bg{border-radius: 16px; background-color: #FFF799; box-shadow: 16px 16px 0px #FFF799; display: inline-block;  height: 100%;}
+.pic-bg:after{content: '';background: url('../images/pic-bg.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 100px; height: 100px; display: block; position: absolute; bottom: -40px; right:-30px;}
+.pic{position: relative;border-radius: 16px;box-shadow: 4px 4px 8px rgba(0,0,0,0.2);z-index: 1;}
+.pic img{border-radius: 16px;}
+
+
+/* 地圖 */
+.map{margin-left: 40px;}
+.map p{font-weight: bold;}
+.map .address{color:#4F2419;font-size: 20px;line-height: 2em;}
+.map .address:hover{color: #F29B83;}
+.map .address i{font-size:20px; margin-right: 8px;}
+.map img{width: 440px; margin:24px auto;}
+
+
+/* OPEN!X卡娜赫拉聯名限定商品 */
+.title2{background: url('../images/title2.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 480px; height: 56px; display: block; position: relative; margin: 0 auto 40px auto;}
+.title2:before{ content: ''; background: url('../images/bling-left.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 48px; height: 48px; display: block; position: absolute; top: -10px; left:4px;}
+.title2:after{ content: ''; background: url('../images/bling-right.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 48px; height: 48px; display: block; position: absolute; top: 20px; right:-6px;}
+.icon-top{background: url('../images/icon-top.png') center center no-repeat ;  -webkit-background-size: cover; background-size: cover; width: 200px; height: 70px; display: block; position: relative; margin: 0 auto;position: absolute;top: -60px; left: 50%; transform: translate(-50%, 0);}
+.icon-top:before{content: ''; background: url('../images/heart.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 30px; height: 30px; display: block; position: absolute; top: -10px; right:-35px;}
+
+.product{padding-bottom: 80px;}
+
+/* tab */
+.tab-menu{ display: flex; width: 100%; }
+.tab-menu.L1{justify-content: center; width: 100%;}
+.tab-menu li{ box-sizing: border-box; display: flex; align-items: center; }
+.tab-menu.L2 li{  color: #fff;background: #F29B83; padding: 12px 40px;font-size: 24px; font-weight: bold; border-radius: 16px 16px 0 0 ; }
+.tab-menu.L2 li:hover{  color: #F29B83; background: #fff;  }
+.tab-menu li+li{ margin: 0 0 0 10px; }
+.tab-menu.L2 li.active{ background:#fff; color:#F29B83; }
+.L1 #tab01,.L1 #tab02,.L1 #tab03{width: 100%; display: block; margin: 16px 0; padding: 0; }
+.tab-content.L2{width: 100%; display: block; background-color: #fff; margin: 0; padding: 40px; border-radius:0 16px 16px 16px; }
+
+/* 有新增其他tab可以刪除此樣式 */
+#tab03 .tab-content.L2{border-radius:16px;}
+
+/* tab 圖片樣式 */
+.tab-menu li .tab-pic-01{background: url('../images/tab-hover-1.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 160px; height: 160px; display: block; position: relative;}
+.tab-menu li .tab-pic-01:hover{background: url('../images/tab-1.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 160px; height: 160px; display: block; position: relative;filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.4))}
+.tab-menu li.active .tab-pic-01{background: url('../images/tab-1.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 160px; height: 160px; display: block; position: relative; filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.4))}
+
+.tab-menu li .tab-pic-02{background: url('../images/tab-hover-2.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 160px; height: 160px; display: block; position: relative;}
+.tab-menu li .tab-pic-02:hover{background: url('../images/tab-2.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 160px; height: 160px; display: block; position: relative;filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.4))}
+.tab-menu li.active .tab-pic-02{background: url('../images/tab-2.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 160px; height: 160px; display: block; position: relative;filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.4))}
+
+.tab-menu li .tab-pic-03{background: url('../images/tab-hover-3.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 160px; height: 160px; display: block; position: relative;}
+.tab-menu li .tab-pic-03:hover{background: url('../images/tab-3.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 160px; height: 160px; display: block; position: relative;filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.4))}
+.tab-menu li.active .tab-pic-03{background: url('../images/tab-3.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 160px; height: 160px; display: block; position: relative;filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.4))}
+
+/* 限定商品 */
+.product-slide{width: 100%; display: block; margin:24px 0; }
+.product-group{width: 100%; display: block;}
+.product-group p{text-align: center;font-size: 16px;}
+.slick-slide{ }
+.slick-slide div{height: 300px; }
+.slick-slide img {border-radius: 8px; width: 100%;}
+.slick-slide.slick-active{ opacity:1; }
+.slick-prev,.slick-next{ width: auto; z-index:9; }
+.slick-prev{ left:-20px; }
+.slick-next{ right:-20px; }
+.slick-prev:before ,.slick-next:before{ content:''; display:block; width:100%; font-weight: bold; font-size: 24px; transition:all .6s; color: #4F2419;font-weight: 900; font-family: 'Font Awesome 5 Free';}
+.slick-prev:before{ content: '\f137'; }
+.slick-next:before{ content: '\f138'; }
+
+
+/* 甜品預購 */
+.dessert{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.dessert img{
+	width: calc(100%/2 - 24px);
+	padding: 8px;
+	box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ibon列印 */
+.ibon-title{
+	width: 400px;
+	font-size: 36px;
+	font-weight: bold;
+	margin: 0 auto;
+	color: #F29B83;
+	padding-bottom: 24px;
+}
+.ibon-title:before{content: ''; background: url('../images/ibon/painting-icon-L.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 48px; height: 48px; display: block; position: absolute; top: 0; left:-60px;}
+.ibon-title:after{content: ''; background: url('../images/ibon/painting-icon-R.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 48px; height: 48px; display: block; position: absolute; top: 0; right:-60px;}
+.ibon-content{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.ibon-box{
+	width: calc(100%/3);
+	padding: 8px;
+}
+.ibon-box img{
+	border-radius: 8px;
+	border: 4px solid #F29B83;
+	box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+}
+.download-btn{
+	background-color: #F29B83;
+	color: #fff;
+	border: 4px solid #fff;
+	border-radius: 50px;
+	padding: 8px 16px;
+	margin: 16px auto;
+	font-size: 24px;
+	font-weight: bold;
+	transition: ease .5s;
+
+}
+.download-btn:hover{
+	background-color: #fff;
+	color: #F29B83;
+	border: 4px solid #F29B83;
+}
+
+/* footer */
+footer{text-align:center; padding:0; display: flex; flex-direction: column; justify-content: center; background-color:#FCE4DF; color: #4F2419;  margin-top: -17px;font-size: 12px; line-height: 2em;text-align: center;padding:40px 0;}
+footer:after{content: ''; background: url('../images/footer-bar.png') bottom center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 100%; padding-top: 2.5%; display: block; position: absolute; bottom: 0; left:0;}
+.footer-container{width: 100%;}
+.footer-content{display: flex; justify-content: space-between;}
+
+.link{font-weight: bold; font-size: 16px;}
+.copyright-pc{background: url('../images/copyright.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 110px; height: 48px; display: block; position: relative; margin-left: 24px;}
+.footer-pic1{background: url('../images/footer-pic1.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 270px; height: 210px; display: block; position: relative; margin-top: -140px;}
+.footer-pic2{background: url('../images/footer-pic2.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 330px; height: 200px; display: block; position: relative; margin-top: -140px; margin-right: 160px;}
+
+
+
+footer img{width: 100%; height:100%;}
+
+
+/* go to TOP */
+.ig{position:fixed; right:20px; bottom:160px; cursor:pointer; z-index: 9;}
+.ig img{ width:auto; height:60px; }
+.btn-top{ position:fixed; right:20px; bottom:50px; cursor:pointer; z-index: 9;animation: btn-top 1s linear infinite ;} 
+.btn-top img{ width:auto; height:100px; }
+@keyframes btn-top{
+	0%{bottom:60px;}
+	50%{bottom:50px;}
+	100%{bottom:60px;}
+}
+
+
+
+
+/* ------------------ Extra large devices (desktops) ------------------ */
+@media screen and (min-width:1200px){ 
+
+/* danny */
+body{ margin-top: 0; }
+header{ display: none; }
+
+/* pc出現 mobile隱藏 */
+.D\(pc\) { display: flex; }
+.D\(mobile\) { display: none ; }
+
+
+
+/* kv */
+.index .kv-container .images-block .images-bg:before{ padding-top:38.6%; min-height:528px; } 
+.kv-container .btn { max-width: 800px; margin: 0 auto 50px auto; }
+
+/* 錨點選單 */
+.menu { position: absolute; z-index: 1; top: 84%;  width: 100vw;  display: flex; justify-content: center; align-items: center; text-align: center; padding: 10px 0;}
+.menu-btn{ width: 370px; margin: 0 24px; padding: 0 16px; border-radius: 50px;  cursor: pointer; background: #F29B83;}
+.menu-btn1{ background: url('../images/menu-btn1.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain;/*  width: 56px; */ height: 56px; display: block;}
+.menu-btn1:before{content: ''; background: url('../images/menu-icon1.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 56px; height: 56px; display: block; position: absolute; top: 0; left:0;
+	animation: up-down 1s linear infinite ;
+}
+@keyframes up-down{
+	0%{top:-10px;}
+	50%{top:0;}
+	100%{top:-10px;}
+}
+
+
+.menu-btn2{ background: url('../images/menu-btn2.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain;/*  width: 56px; */ height: 56px; display: block;}
+.menu-btn2:before{content: ''; background: url('../images/menu-icon2.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 56px; height: 56px; display: block; position: absolute; top: 0; left: 0;
+animation: up-down 1s linear infinite ;
+}
+.menu.scrollfixed{ position: fixed; left: 0; top: 0; z-index: 999; background: #F29B83;} 
+.navToggle{ transform:scaleX(.8); transition:transform .3s cubic-bezier(0.78, 2.21, 0.51, 0.32); }
+.navToggle:hover { transform:scaleX(1); }
+.navCheck:checked ~ .navToggle.navToggle01{ transform:scaleX(1); }
+
+
+}
+
+
+/* ------------------ Large devices (tablets) ------------------ */
+@media screen and (max-width:1199.98px) and (min-width:768px){
+
+/*pc出現 mobile隱藏*/
+.D\(pc\) { display: flex; }
+.D\(mobile\) { display: none ; }
+
+p{font-size: 16px;line-height: 1.5em;}
+
+
+/*header*/
+header .header-container{ padding: 10px 12px; height: 52px; width: 52px; }
+
+section{padding: 40px 0 100px 0;}
+.container{ padding:0 20px; max-width: 700px;}
+.contant { padding: 24px 0 80px 0; }
+
+.kv-container{margin-top: -50px;}
+.kv-bg img { padding: 36px 0 60px 0;}
+
+
+/* OPEN!X卡娜赫拉巨型氣球 */
+.bg-white:before{
+	top: -60px;
+}
+.bg-yellow {
+    padding: 80px 0 100px 0;
+}
+.title1{margin:-40px auto 20px auto;}
+
+/* 地圖 */
+.map .address{font-size: 12px;line-height: 1.5em;}
+.map .address i{font-size:12px; margin-right: 4px;}
+.map img{width: 280px; margin:24px auto;}
+
+
+/* OPEN!X卡娜赫拉聯名限定商品 */
+.title2{margin:40px auto;}
+.icon-top { width: 170px; height: 59px; top: -50px;}
+.icon-top:before{width: 22px;height:22px; top:0;}
+
+/* tabs */
+.tab-content.L2{padding:24px;}
+.tab-menu li .tab-pic-01{ width: 120px; height: 120px; }
+.tab-menu li .tab-pic-01:hover{width: 120px; height: 120px;}
+.tab-menu li.active .tab-pic-01{ width: 120px; height: 120px;}
+
+.tab-menu li .tab-pic-02{ width: 120px; height: 120px;}
+.tab-menu li .tab-pic-02:hover{width: 120px; height: 120px;}
+.tab-menu li.active .tab-pic-02{ width: 120px; height: 120px;}
+
+.tab-menu li .tab-pic-03{ width: 120px; height: 120px; }
+.tab-menu li .tab-pic-03:hover{width: 120px; height: 120px;}
+.tab-menu li.active .tab-pic-03{ width: 120px; height: 120px; }
+
+/* 限定商品 */
+.slick-slide div {
+    height: 270px;
+}
+
+/* 甜品預購 */
+
+
+/* ibon列印 */
+
+
+
+
+
+
+/* footer */
+/* .footer-text{width: 100%;} */
+footer{padding:24px 0;}
+.copyright-pc{ width: 80px; height: 32px; display: block; position: relative; margin-left: 24px;}
+.footer-text{padding-bottom: 8px;}
+.footer-pic1{ width: 200px; height: 140px; display: block; position: relative; margin-top: -100px;}
+.footer-pic2{ width: 240px; height: 140px; display: block; position: relative; margin-top: -100px; margin-right: 100px;}
+
+
+
+}
+
+
+/* ------------------ ipad尺寸  ------------------ */
+@media screen and (max-width:1023.98px) and (min-width:768px){
+.footer-content{display: block;}
+.footer-pic1{ display: none;}
+.footer-pic2{ display: none;}
+.copyright-pc{display: block; position: absolute; width: 100px; height: 48px;}
+.copyright-m{ display: none;}
+
+}
+
+
+
+
+/* ------------------ Small devices (phones) ------------------ */
+@media screen and (max-width:767.98px){
+
+.D\(pc\) { display: none; }
+.D\(mobile\) { display: flex; }
+
+p{font-size: 16px;line-height: 1.5em;}
+
+section{padding: 40px 0 100px 0; }
+.container{ padding:0 16px; }
+.contant { padding: 24px 0; flex-wrap: wrap;}
+
+.bg-yellow { padding: 40px 0 100px 0;}
+.bg-yellow:first-child{padding: 32px 0 80px 0;}
+
+/*header*/
+header .header-container{ padding: 10px; height: 48px; width: 48px; }
+header .header-container .logo{ width:109px; height:20px; }
+header nav{ align-items:initial; }
+.navToggle{ width:27px; height:20px;  }
+.navToggle span, .navToggle span:before, .navToggle span:after{ height:2px; }
+.navToggle span:before{ top:-8px; }
+.navToggle span:after{ bottom:-8px; }
+.navCheck:checked ~ nav{ padding:60px 15px 30px;  }
+
+.kv-container{margin-top: -50px;}
+.kv-bg {
+    background: url('../images/kv-bg_m.png') center bottom no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+.kv-bg img {
+    width: 95%;
+    margin: 0 auto;
+    padding: 36px 0 60px 0;
+}
+
+/* 影片區 */
+.video {
+    box-shadow: 8px 8px 0px #face9d;
+}
+.video:before{width: 60px;height: 60px; right:-10px;}
+.video:after{ width: 60px;height: 60px; left:-10px;}
+
+/* OPEN!X卡娜赫拉巨型氣球 */
+.bg-white:before{
+	top: -28px;  
+}
+.bg-open-m1{
+	background: url('../images/bg-open-m1.png') center center no-repeat ;  
+	-webkit-background-size: contain; 
+	background-size: contain; 
+	width: 100%;
+	padding-top: 27%;
+	display: block; 
+	position: relative;
+}
+
+.bg-white:after{
+	background: url('../images/bg-open-m2.png') center center no-repeat ;  
+	-webkit-background-size: contain;
+    background-size: contain;
+    padding-top: 25.5%;
+}
+
+
+.title1{width: 280px; margin:-50px auto 24px auto;}
+.title1:before{top: 0; left:-34px;}
+.title1:after{top: 0; right:-34px;}
+.pic-bg{
+    box-shadow: 8px 8px 0px #fff799;
+    margin-bottom: 24px;
+}
+
+.pic-bg:after{
+    width: 60px;
+    height: 60px;
+    bottom: -30px;
+    right: -10px;
+}
+
+
+/* 地圖 */
+.map{margin: 40px 0 0 0;}
+.map .address{font-size: 16px;line-height: 1.5em;}
+.map .address i{font-size:16px; margin-right: 4px;}
+.map img{width: 100%; margin:24px auto;}
+
+
+/* OPEN!X卡娜赫拉聯名限定商品 */
+
+.icon-top { width: 150px; height: 52px; top: -36px;}
+.icon-top:before{width: 18px;height:18px; top:0; right:-24px;}
+
+.title2{width: 320px; margin: 40px auto 24px auto;}
+.title2:before{top: 4px; left:-6px; width: 32px; height: 32px;}
+.title2:after{top: 20px; right:-14px; width: 32px; height: 32px;}
+
+/* tabs */
+.tab-content.L2{padding:16px;}
+.tab-menu.L2 li{font-size: 14px; padding: 8px 20px;border-radius: 8px 8px 0 0;}
+.tab-menu li .tab-pic-01{ width: 80px; height: 80px; }
+.tab-menu li .tab-pic-01:hover{width:  80px; height: 80px;}
+.tab-menu li.active .tab-pic-01{ width: 80px; height: 80px;}
+
+.tab-menu li .tab-pic-02{ width: 80px; height: 80px;}
+.tab-menu li .tab-pic-02:hover{width:  80px; height: 80px;}
+.tab-menu li.active .tab-pic-02{ width: 80px; height: 80px;}
+
+.tab-menu li .tab-pic-03{ width: 80px; height: 80px; }
+.tab-menu li .tab-pic-03:hover{width:  80px; height: 80px;}
+.tab-menu li.active .tab-pic-03{ width: 80px; height: 80px; }
+.L2 #tab01, .L2 #tab02, .L2 #tab03{border-radius: 0 8px 8px 8px;}
+
+/* 限定商品 */
+.slick-slide div {
+    height: 240px;
+}
+.slick-prev{ left:-16px; }
+.slick-next{ right:-16px; }
+
+/* 甜品預購 */
+
+.dessert img{
+	width: 100%;
+	height: 100%;
+}
+
+
+/* ibon列印 */
+.ibon-title{
+	width: 100%;
+	font-size: 24px;
+	text-align: center;
+	padding-bottom: 24px;
+}
+.ibon-title:before{
+	width: 28px;
+	top: -10px;
+	left: -8px;
+}
+.ibon-title:after{
+	width: 28px;
+	top: -10px;
+	right: -8px;
+}
+.ibon-box {
+	width: 100%;
+    padding: 4px;
+}
+.ibon-box a{
+	font-size: 16px;
+}
+
+
+/* footer */
+footer{padding:0 0 24px 0;}
+footer:after {-webkit-background-size: cover; background-size: cover; width: 100%; padding-top: 5%;}
+.btn-top{right:8px;bottom:80px;}
+.ig{right:12px;bottom:190px;}
+
+.footer-content{flex-wrap: wrap;}
+.footer-text{width: 100%;}
+.copyright-pc{display: none;}
+.copyright-m{background: url('../images/copyright.png') center center no-repeat ;  -webkit-background-size: contain; background-size: contain; width: 110px; height: 48px; display: block; position: relative; margin-left: 24px;margin:8px auto;}
+.footer-pic1{margin:-140px auto 16px auto;}
+.footer-pic2{display: none;}
+
+
+
+
+
+}
+
+
+
+
+
+
